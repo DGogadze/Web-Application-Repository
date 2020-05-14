@@ -1,3 +1,5 @@
+package com.webapp;
+
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Main {
