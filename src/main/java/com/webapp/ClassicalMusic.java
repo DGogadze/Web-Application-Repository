@@ -3,10 +3,10 @@ package com.webapp;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ClassicalMusic {
-    private String musicName = "Lunar Sonata";
-
-    public String getMusicName() {
-        return musicName;
+public class ClassicalMusic implements MusicPlayer{
+    private String music = "Lunar sonata";
+    @Override
+    public void playSong() {
+        System.out.print("Is now playing " + music);
     }
 }

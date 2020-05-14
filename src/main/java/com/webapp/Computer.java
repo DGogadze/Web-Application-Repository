@@ -1,23 +1,21 @@
 package com.webapp;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Computer implements MusicPlayer{
-    private int computerId=5625;
-    private RockMusic rockMusic;
-    private ClassicalMusic classicalMusic;
-
+public class Computer {
+    private MusicPlayer musicPlayer;
+    private MusicPlayer musicPlayerClassic;
     @Autowired
-    Computer(RockMusic rockMusic,ClassicalMusic classicalMusic){
-        this.rockMusic=rockMusic;
-        this.classicalMusic=classicalMusic;
+    Computer(@Qualifier("rockMusic") MusicPlayer musicPlayer,@Qualifier("classicalMusic") MusicPlayer musicPlayerClassic){
+        this.musicPlayer = musicPlayer;
+        this.musicPlayerClassic = musicPlayerClassic;
     }
-
-    @Override
-    public void playSong() {
-        System.out.println("Computer " + computerId + " is now playing " + rockMusic.getMusicName());
-        System.out.println("Computer " + ++computerId + " is now playing " + classicalMusic.getMusicName());
+    void compute(){
+        musicPlayer.playSong();
+        System.out.println("");
+        musicPlayerClassic.playSong();
     }
 }

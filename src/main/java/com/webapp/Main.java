@@ -7,7 +7,7 @@ public class Main {
         ClassPathXmlApplicationContext context = new
                 ClassPathXmlApplicationContext("context.xml");
         Computer computer = context.getBean("computer",Computer.class);
-        computer.playSong();
+        computer.compute();
         context.close();
     }
 }
