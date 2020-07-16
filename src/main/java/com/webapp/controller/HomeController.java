@@ -8,7 +8,7 @@ public class HomeController {
 
     @GetMapping("")
     public String indexPage(){
-        return "/WEB-INF/views/index.jsp";
+        return "home/homePage";
     }
 
     @GetMapping("/home")
