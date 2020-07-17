@@ -15,4 +15,9 @@ public class HomeController {
     public String homePage() {
         return "home/homePage";
     }
+
+    @GetMapping("/exit")
+    public String exitPage(){
+        return "home/exitPage";
+    }
 }
